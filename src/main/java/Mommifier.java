@@ -12,10 +12,19 @@ public class Mommifier {
         if (vowelsCount/0.3 < length)
             return aString;
 
+        List<String> convertResult = addMommyForVowelsSet(aString);
+
+        return String.join("",convertResult);
+
+    }
+
+    private List<String> addMommyForVowelsSet(String aString) {
         char[]  charOfStr = aString.toCharArray();
         List<String> convertResult = new ArrayList<>();
+
         char previous = charOfStr[0];
         convertResult.add(String.valueOf(previous));
+
         for (int i = 1; i < charOfStr.length; i++) {
             char current = charOfStr[i];
             if (isVowel(previous) && !isVowel(current)) {
@@ -24,11 +33,11 @@ public class Mommifier {
             convertResult.add(String.valueOf(current));
             previous = current;
         }
+
         if (isVowel(previous))
             convertResult.add(MOMMY);
 
-        return String.join("",convertResult);
-
+        return convertResult;
     }
 
     private Boolean isVowel(char aChar) {
