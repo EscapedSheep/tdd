@@ -27,15 +27,12 @@ public class Mommifier {
 
         for (int i = 1; i < charOfStr.length; i++) {
             char current = charOfStr[i];
-            if (isVowel(previous) && !isVowel(current)) {
+            if (isVowel(previous) && isVowel(current)) {
                 convertResult.add(MOMMY);
             }
             convertResult.add(String.valueOf(current));
             previous = current;
         }
-
-        if (isVowel(previous))
-            convertResult.add(MOMMY);
 
         return convertResult;
     }
