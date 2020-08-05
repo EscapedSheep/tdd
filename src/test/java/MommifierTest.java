@@ -27,4 +27,12 @@ public class MommifierTest {
         String expected = mommifier.convert(strToConvert);
         assertEquals(expected, "shemommyep");
     }
+
+    @Test
+    void should_return_string_with_mommy_when_convert_given_string_have_3_letters_of_continuous_vowels() {
+        Mommifier mommifier = new Mommifier();
+        String strToConvert = "sheeep";
+        String expected = mommifier.convert(strToConvert);
+        assertEquals(expected, "shemommyemommyep");
+    }
 }
